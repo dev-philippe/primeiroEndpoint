@@ -1,12 +1,20 @@
 package com.criandoEndpoint.WatchDogs.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tb_usuario")
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY
+    )
     private int id;
+    @Column(length = 50 )
     private String nome;
+    @Column(length = 50)
     private String cpf;
 
-    public Usuario(int id, String nome, String cpf) {
-        this.id = id;
+    public Usuario(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
@@ -15,9 +23,8 @@ public class Usuario {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+
 
     public String getNome() {
         return nome;
